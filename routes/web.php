@@ -26,8 +26,7 @@ Route::get('/', function () {
 
 // Route::get('trainer', [TestController::class, 'cubaan']);
 
-Route::get('todos', [TodoController::class, 'index']);
-
+Route::resource('todos',TodoController::class);
 // Dari route ke view terus
 // Route::get('/', function () {
 //     return view('welcome');

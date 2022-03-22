@@ -16,7 +16,7 @@ class TodoController extends Controller
     {
         return view('todo.index', [
             'todos' => Todo::paginate(10),
-            'name' => 'Rasyidi',
+            'name' => 'Farah',
         ]);
     }
 
@@ -27,7 +27,7 @@ class TodoController extends Controller
      */
     public function create()
     {
-        //
+        return view('todo.create'); //todo is folder name create is file name in folder view
     }
 
     /**
@@ -39,6 +39,12 @@ class TodoController extends Controller
     public function store(Request $request)
     {
         //
+        //dd($request->all());
+        $todo =new Todo();
+        $todo -> name = $request->name;
+        $todo->save();
+
+        return redirect('/todos');
     }
 
     /**

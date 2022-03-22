@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col">
                 <h1>{{ $name }}'s Todos</h1>
-
+                <a href="/todos/create" class="btn btn-outline-primary btn-sm mt4">Create New</a>
                 <div class="card">
                     <div class="card-body">
                         <table class="table table-striped">
@@ -40,7 +40,7 @@
                                         <td>{{ $todos->firstItem() + $key }}</td>
                                         <td>{{ $todo->name }}</td>
                                         <td>{{ $todo->status }}</td>
-                                        <td><button class="btn btn-primary">Done</button></td>
+                                        <td><button class="btn btn-primary btn-sm">Done</button></td>
                                     </tr>
                                 @empty
                                     <tr>
