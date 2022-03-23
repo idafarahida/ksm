@@ -18,6 +18,11 @@
                 <a href="/todos/create" class="btn btn-outline-primary btn-sm mt4">Create New</a>
                 <div class="card">
                     <div class="card-body">
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                                {{session('status')}}
+                            </div>
+                        @endif
                         <table class="table table-striped">
                             <thead>
                                 <tr>
@@ -40,7 +45,14 @@
                                         <td>{{ $todos->firstItem() + $key }}</td>
                                         <td>{{ $todo->name }}</td>
                                         <td>{{ $todo->status }}</td>
-                                        <td><button class="btn btn-primary btn-sm">Done</button></td>
+                                        <td>
+                                        <form action="todos/{{$todo->id}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-primary btn-sm">Done</button>
+                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
+                                </td>
                                     </tr>
                                 @empty
                                     <tr>
